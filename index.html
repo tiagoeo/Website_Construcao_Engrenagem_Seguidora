@@ -53,6 +53,24 @@
             <img src="img/cursor.png" alt="cursor" height="84" width="84">
         </div>
 
+        <div class="container marketing my-2 p-3 bg-white rounded shadow-sm">
+            <label for="basic-url" class="form-label">Cursor</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="cursorX">X</span>
+                <input type="text" class="form-control" aria-describedby="cursorX" id="crX">
+                <span class="input-group-text" id="cursorY">Y</span>
+                <input type="text" class="form-control" aria-describedby="cursorY" id="crY">
+            </div>
+
+            <label for="basic-url" class="form-label">Engrenagem</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="engrenagemX">X</span>
+                <input type="text" class="form-control" aria-describedby="engrenagemX" id="enX">
+                <span class="input-group-text" id="engrenagemY">Y</span>
+                <input type="text" class="form-control" aria-describedby="engrenagemY" id="enY">
+            </div>
+        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
         <script>
@@ -98,6 +116,11 @@
                     if (engrenagem.getBoundingClientRect().left == cursor.getBoundingClientRect().left && engrenagem.getBoundingClientRect().top == cursor.getBoundingClientRect().top){
                         clearInterval(id);
                     }
+
+                    document.getElementById("crX").value = cursor.getBoundingClientRect().left;
+                    document.getElementById("crY").value = cursor.getBoundingClientRect().top;
+                    document.getElementById("enX").value = engrenagem.getBoundingClientRect().left;
+                    document.getElementById("enY").value = engrenagem.getBoundingClientRect().top;
                 }
 
                 var id = setInterval(mover, 10);
