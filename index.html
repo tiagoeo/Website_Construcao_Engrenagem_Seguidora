@@ -12,25 +12,7 @@
         <title> Página em construção </title>
         <meta name="google" content="notranslate">
         <meta name="theme-color" content="#563d7c">
-        <style type="text/css">
-            @keyframes loading {
-                to {transform: rotate(360deg);}
-            }
-
-            .spinner.animado {
-                position: absolute;
-                top: 10px;
-                left: 50%;
-                transition: transform 0.3s linear z-index 0.3 linear;
-                z-index: 0;
-                animation: loading 2s cubic-bezier(0, .25, .7125, .1) infinite;
-            }
-            .cursor{
-                position: absolute;
-                top: -100px;
-                left: -100px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="static/css/engrenagem.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     </head>
 
@@ -46,11 +28,11 @@
         </div>
        
         <div class="spinner animado" role="status" id="engrenagem">
-            <img src="img/engrenagem.png" alt="engrenagem" height="84" width="84">
+            <img src="static/img/engrenagem.png" alt="engrenagem" height="84" width="84">
         </div>
 
         <div class="cursor" role="status" id="cursor">
-            <img src="img/cursor.png" alt="cursor" height="84" width="84">
+            <img src="static/img/cursor.png" alt="cursor" height="84" width="84">
         </div>
 
         <div class="container marketing my-2 p-3 bg-white rounded shadow-sm">
@@ -71,6 +53,30 @@
             </div>
         </div>
 
+        <div class="container marketing my-2 p-3 bg-white rounded shadow-sm">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Sevidor</th>
+                    <th scope="col">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">PHP</th>
+                    <td id="testePHP">Falha</td>
+                </tr>
+                <tr>
+                    <th scope="row" >CSS3</th>
+                    <td id="testeCSS3">Falha</td>
+                </tr>
+                <tr>
+                    <th scope="row">Javascript</th>
+                    <td id="testeJavascript">Falha</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
         <script>
@@ -122,9 +128,66 @@
                     document.getElementById("enX").value = engrenagem.getBoundingClientRect().left;
                     document.getElementById("enY").value = engrenagem.getBoundingClientRect().top;
                 }
-
                 var id = setInterval(mover, 10);
             }
+
+            function testePHP(){
+                const baseurl = 'transmitir.php'
+                const testePHP = 'testePHP';
+                sendRequest(baseurl, testePHP);
+            }
+
+            /* Adaptado do exemplo: https://www.quirksmode.org/js/xmlhttp.html */
+            function sendRequest(url, postData) {
+                var req = createXMLHTTPObject();
+                if (!req) return;
+                var method = (postData) ? "POST" : "GET";
+                req.open(method,url,true);
+                req.setRequestHeader('User-Agent','XMLHTTP/1.0');
+                if (postData)
+                    req.setRequestHeader('Content-type','application/x-www-form-urlencoded; charset=UTF-8');
+                req.onreadystatechange = function () {
+                    if (req.readyState != 4) return;
+                    if (req.status != 200 && req.status != 304) {
+                        return;
+                    }
+                    if (req.readyState == 4) {
+                        var teste = document.getElementById('testePHP');
+                        teste.innerHTML = req.responseText;
+                        return req.responseText;
+                    }
+                }
+                if (req.readyState == 4) return;
+                req.send(postData);
+            }
+
+            var XMLHttpFactories = [
+                function () {return new XMLHttpRequest()},
+                function () {return new ActiveXObject("Msxml2.XMLHTTP")},
+                function () {return new ActiveXObject("Msxml3.XMLHTTP")},
+                function () {return new ActiveXObject("Microsoft.XMLHTTP")}
+            ];
+
+            function createXMLHTTPObject() {
+                var xmlhttp = false;
+                for (var i=0;i<XMLHttpFactories.length;i++) {
+                    try {
+                        xmlhttp = XMLHttpFactories[i]();
+                    }
+                    catch (e) {
+                        continue;
+                    }
+                    break;
+                }
+                return xmlhttp;
+            }
+            /* // Exemplo */
+
+            window.addEventListener("load", function(event) {
+                var teste = document.getElementById('testeJavascript');
+                teste.innerHTML = 'OK';
+                testePHP();
+            });
         </script>
     </body>
 </html>

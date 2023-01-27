@@ -1,0 +1,28 @@
+@keyframes loading {
+    to {transform: rotate(360deg);}
+}
+
+.spinner.animado {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transition: transform 0.3s linear z-index 0.3 linear;
+    z-index: 0;
+    animation: loading 2s cubic-bezier(0, .25, .7125, .1) infinite;
+}
+.cursor{
+    position: absolute;
+    top: -100px;
+    left: -100px;
+}
+
+/* Teste CSS3*/
+#testeCSS3{
+    font-size: 0;
+    bottom:0;
+}
+
+#testeCSS3::after{
+    content: "OK";
+    font-size: 16px !important;
+}
