@@ -39,7 +39,10 @@
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> 
   </a>
-    <a href="https://www.php.net" target="_blank" rel="noreferrer"> 
+  <a href="https://pt.m.wikipedia.org/wiki/Ajax_(programa%C3%A7%C3%A3o)" target="_blank" rel="noreferrer"> 
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/AJAX_logo_by_gengns.svg" alt="Ajax" width="40" height="40"/>
+  </a>
+  <a href="https://www.php.net" target="_blank" rel="noreferrer"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/>
   </a>
 </p>
