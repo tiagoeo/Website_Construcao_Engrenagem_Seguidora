@@ -9,7 +9,7 @@
 
 <hr><h2 align="left">SOBRE</h2>
 <p align="left">
-  Exemplo disponível no <a href="https://tiagoeo.github.io/website_construcao_engrenagem_seguidora/">github-pages</a>
+  Exemplo disponível no <a href="https://tiagoeo.github.io/Website_Construcao_Engrenagem_Seguidora/">github-pages</a>
 </p>
 <p align="left">
   Esta página visa apresentar informações relevantes do servidor, assim como serviços ou produtos que serão apresentados no site quando estiver completo.
